@@ -29,9 +29,22 @@ class ViewController: UIViewController {
         let humanYears = ageInHumanYearsTextField.text.toInt()!
         let ageInDogYears = humanYears * 7
         ageInDogYearsLabel.text = "Age in Dog Years \(ageInDogYears)"
-        ageInHumanYearsTextField.resignFirstResponder() 
+        ageInHumanYearsTextField.resignFirstResponder()
         
     }
 
+
+    @IBAction func convertToRealDogYearsButton(sender: UIButton) {
+        let humanYears = Double((ageInHumanYearsTextField.text as NSString).doubleValue)
+        var ageInDogYears:Double
+        
+        if humanYears <= 2{
+            ageInDogYears = humanYears * 10.5
+        }else{
+            ageInDogYears = 21 + (humanYears-2) * 4
+        }
+        ageInDogYearsLabel.text = "Real Age in Dog Years \(ageInDogYears)"
+        ageInHumanYearsTextField.resignFirstResponder()
+    }
 }
 
